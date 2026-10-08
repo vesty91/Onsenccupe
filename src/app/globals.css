@@ -4,35 +4,35 @@
 
 @layer base {
   :root {
-    /* Brand hex (référence marketing) */
-    --brand: #1e3a5f;
-    --brand-dark: #0f243d;
-    --brand-light: #2a4f7a;
-    --brand-accent: #e8913a;
-    --brand-accent-hover: #d47e2a;
-    --surface: #f4f7fb;
+    /* Brand hex (référence marketing) — palette plus chaude */
+    --brand: #1a2f4a;
+    --brand-dark: #0c1a2b;
+    --brand-light: #2a4a6e;
+    --brand-accent: #f07a2e;
+    --brand-accent-hover: #d96a22;
+    --surface: #faf8f5;
 
     /* Tokens shadcn (HSL channels) — alignés palette Onsenccupe */
-    --background: 0 0% 100%;
+    --background: 40 20% 98%;
     --foreground: 215 28% 15%;
     --card: 0 0% 100%;
     --card-foreground: 215 28% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 215 28% 15%;
-    --primary: 210 52% 25%;
+    --primary: 210 48% 20%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 25% 96%;
-    --secondary-foreground: 210 52% 25%;
-    --muted: 210 25% 96%;
+    --secondary: 35 25% 96%;
+    --secondary-foreground: 210 48% 20%;
+    --muted: 35 20% 96%;
     --muted-foreground: 210 12% 42%;
-    --accent: 32 79% 57%;
+    --accent: 24 87% 56%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 210 52% 25%;
-    --radius: 0.75rem;
+    --border: 30 15% 90%;
+    --input: 30 15% 90%;
+    --ring: 210 48% 20%;
+    --radius: 0.875rem;
   }
 
   * {
@@ -46,7 +46,7 @@
 }
 
 ::selection {
-  background: rgba(232, 145, 58, 0.25);
+  background: rgba(240, 122, 46, 0.22);
   color: var(--brand-dark);
 }
 
@@ -56,7 +56,7 @@
   }
 
   .section-padding {
-    @apply py-16 sm:py-20 lg:py-24;
+    @apply py-20 sm:py-24 lg:py-28;
   }
 }
 

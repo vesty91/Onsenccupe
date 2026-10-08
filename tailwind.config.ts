@@ -10,19 +10,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand Onsenccupe (site vitrine) — inchangé
+        // Brand Onsenccupe — palette plus chaude
         brand: {
-          DEFAULT: "#1e3a5f",
-          dark: "#0f243d",
-          light: "#2a4f7a",
+          DEFAULT: "#1a2f4a",
+          dark: "#0c1a2b",
+          light: "#2a4a6e",
         },
-        // Orange CTA marketing (Button.tsx existant)
+        // Orange CTA marketing (plus vif)
         accent: {
-          DEFAULT: "#e8913a",
-          hover: "#d47e2a",
+          DEFAULT: "#f07a2e",
+          hover: "#d96a22",
           foreground: "#ffffff",
         },
-        surface: "#f4f7fb",
+        surface: "#faf8f5",
         // Tokens shadcn (CSS variables)
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -65,9 +65,9 @@ const config: Config = {
         display: ["var(--font-syne)", "var(--font-outfit)", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 8px 30px rgba(30, 58, 95, 0.08)",
-        glow: "0 0 40px -8px rgba(232, 145, 58, 0.45)",
-        elevate: "0 24px 60px -20px rgba(15, 36, 61, 0.35)",
+        soft: "0 8px 30px rgba(26, 47, 74, 0.07)",
+        glow: "0 0 40px -8px rgba(240, 122, 46, 0.45)",
+        elevate: "0 24px 60px -20px rgba(12, 26, 43, 0.32)",
       },
       keyframes: {
         "accordion-down": {

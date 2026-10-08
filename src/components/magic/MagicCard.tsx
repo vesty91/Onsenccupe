@@ -21,7 +21,7 @@ export function MagicCard({
   children,
   className,
   gradientSize = 220,
-  gradientColor = "rgba(232, 145, 58, 0.18)",
+  gradientColor = "rgba(240, 122, 46, 0.16)",
 }: MagicCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: -999, y: -999 });
@@ -43,7 +43,8 @@ export function MagicCard({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       className={cn(
-        "group relative overflow-hidden rounded-2xl border border-[#e2e8f0] bg-white",
+        "group relative overflow-hidden rounded-2xl border border-[#ebe6e0] bg-white",
+        "transition-all duration-300 hover:-translate-y-1 hover:shadow-elevate",
         className
       )}
     >

@@ -14,9 +14,11 @@ export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isHome = pathname === "/";
+  const transparent = isHome && !scrolled && !open;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -26,14 +28,16 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-[#e2e8f0]/80 bg-white/80 shadow-soft backdrop-blur-xl"
-          : "border-b border-transparent bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80"
+        transparent
+          ? "border-b border-transparent bg-transparent"
+          : scrolled
+            ? "border-b border-[#e8e4df]/80 bg-white/85 shadow-soft backdrop-blur-xl"
+            : "border-b border-transparent bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85"
       )}
     >
-      <div className="container-site flex h-16 items-center justify-between gap-4 sm:h-[4.25rem]">
+      <div className="container-site flex h-[4.25rem] items-center justify-between gap-4 sm:h-[4.5rem]">
         <Link href="/" onClick={() => setOpen(false)} className="shrink-0">
-          <Logo />
+          <Logo variant={transparent ? "light" : "dark"} />
         </Link>
 
         <nav
@@ -52,9 +56,13 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   "rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
-                  active
-                    ? "bg-brand text-white shadow-sm"
-                    : "text-muted-foreground hover:bg-surface hover:text-brand"
+                  transparent
+                    ? active
+                      ? "bg-white/15 text-white"
+                      : "text-white/75 hover:bg-white/10 hover:text-white"
+                    : active
+                      ? "bg-brand text-white shadow-sm"
+                      : "text-muted-foreground hover:bg-surface hover:text-brand"
                 )}
               >
                 {link.label}
@@ -66,7 +74,12 @@ export function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href={SITE.phoneHref}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand hover:text-accent"
+            className={cn(
+              "inline-flex items-center gap-1.5 text-sm font-medium transition-colors",
+              transparent
+                ? "text-white/85 hover:text-white"
+                : "text-brand hover:text-accent"
+            )}
           >
             <Phone className="h-4 w-4" aria-hidden />
             {SITE.phone}
@@ -78,7 +91,12 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex rounded-xl p-2 text-brand hover:bg-surface lg:hidden"
+          className={cn(
+            "inline-flex rounded-xl p-2 lg:hidden",
+            transparent
+              ? "text-white hover:bg-white/10"
+              : "text-brand hover:bg-surface"
+          )}
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
@@ -91,7 +109,7 @@ export function Header() {
       {open && (
         <div
           id="mobile-menu"
-          className="border-t border-[#e2e8f0] bg-white/95 backdrop-blur-xl lg:hidden"
+          className="border-t border-[#e8e4df] bg-white/95 backdrop-blur-xl lg:hidden"
         >
           <nav
             className="container-site flex flex-col gap-1 py-4"
